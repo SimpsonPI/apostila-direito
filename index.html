@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CPNU 2025 - YR Aprova | Noções de Direito</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Cabeçalho Fixo */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ff6600;
+      color: white;
+      padding: 16px 20px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .header .logo {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      margin: 4px 0 0;
+      opacity: 0.95;
+    }
+
+    /* Conteúdo com margem para cabeçalho fixo */
+    .content {
+      margin-top: 130px;
+      padding-bottom: 60px;
+    }
+
+    /* Títulos */
+    h2 {
+      font-size: 1.4rem;
+      color: #1e3a8a;
+      margin: 60px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #3b82f6;
+      page-break-before: always;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #1e40af;
+      margin: 30px 0 12px 0;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: #1e293b;
+      margin: 20px 0 10px 0;
+      font-weight: 600;
+    }
+
+    /* Texto comum */
+    p {
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    /* Sumário */
+    .toc {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .toc h2 {
+      margin: 0 0 16px 0;
+      border: none;
+      font-size: 1.3rem;
+      color: #1e3a8a;
+    }
+
+    .toc ul {
+      list-style: none;
+      font-size: 0.96rem;
+    }
+
+    .toc li {
+      margin-bottom: 8px;
+    }
+
+    .toc a {
+      color: #1e40af;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+      color: #0284c7;
+    }
+
+    .toc ul ul {
+      margin-left: 20px;
+      margin-top: 6px;
+    }
+
+    .toc .section {
+      font-weight: 600;
+      color: #1e3a8a;
+      margin: 10px 0 6px 0;
+    }
+
+    /* Introdução */
+    .introduction {
+      background: #dbeafe;
+      border-left: 4px solid #3b82f6;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 30px;
+      font-size: 0.98rem;
+      color: #1e3a8a;
+    }
+
+    /* Destaque */
+    .highlight {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.96rem;
+      color: #92400e;
+    }
+
+    /* Tabelas */
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+
+    th {
+      background-color: #3b82f6;
+      color: #ffffff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f1f5f9;
+    }
+
+    /* Listas */
+    ul, ol {
+      margin: 12px 0 12px 24px;
+      font-size: 0.98rem;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Questões */
+    .question {
+      margin: 30px 0;
+      padding: 16px;
+      background: #ffffff;
+      border: 1px solid #e0e7ff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .question h4 {
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      list-style: none;
+      margin: 10px 0 10px 0;
+    }
+
+    .options li {
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 0.96rem;
+    }
+
+    .options li::before {
+      content: attr(data-letter ")";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 600;
+      color: #f59e0b;
+    }
+
+    .answer {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #10b981;
+      font-size: 0.96rem;
+    }
+
+    /* Infográficos */
+    .infographic {
+      background: #f1f5f9;
+      border: 1px dashed #64748b;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 8px;
+      text-align: center;
+      font-style: italic;
+      color: #475569;
+    }
+
+    /* Simulado Link */
+    .simulado-box {
+      background: #ecfdf5;
+      border: 1px solid #059669;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .simulado-box h4 {
+      color: #059669;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .simulado-box a {
+      color: #059669;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .simulado-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* Rodapé */
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      page-break-before: avoid;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+        font-size: 0.95rem;
+      }
+      h2 { font-size: 1.3rem; }
+      h3 { font-size: 1.1rem; }
+      .introduction, .highlight {
+        font-size: 0.92rem;
+      }
+      .toc {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+  <body> 
+  <div style="text-align: center; margin-top: 100px;">
+    <img src="Capa.png" alt="Capa Apostila YR Aprova" style="max-width:100%; height:auto;">
+  </div>
+  </body>
+  <!-- Cabeçalho Fixo -->
+  <div class="header">
+    <h1>CPNU 2025 - <span class="logo">YR Aprova</span></h1>
+    <p>Noções de Direito – Nível Médio / Banca FGV</p>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="content">
+
+    <!-- Sumário Interativo -->
+    <div class="toc">
+      <h2>📋 Sumário Interativo</h2>
+      <ul>
+        <li class="section">1. Direitos e Garantias Fundamentais</li>
+        <ul>
+          <li><a href="#direitos-individuais">1.1. Direitos e Deveres Individuais e Coletivos</a></li>
+          <li><a href="#direitos-basicos">1.2. Direito à Vida, Liberdade, Igualdade, etc.</a></li>
+          <li><a href="#direitos-sociais">1.3. Direitos Sociais</a></li>
+          <li><a href="#nacionalidade">1.4. Nacionalidade e Cidadania</a></li>
+          <li><a href="#garantias">1.6. Garantias Constitucionais</a></li>
+          <li><a href="#questao1">Questão 1 – Direitos Fundamentais</a></li>
+        </ul>
+
+        <li class="section">2. Organização do Estado</li>
+        <ul>
+          <li><a href="#administracao">2.1. Administração Pública (Art. 37-41 CF)</a></li>
+        </ul>
+
+        <li class="section">3. Direito Administrativo</li>
+        <ul>
+          <li><a href="#conceito">3.1. Conceito, Fontes e Princípios</a></li>
+          <li><a href="#organizacao">3.2. Organização Administrativa</a></li>
+          <li><a href="#agentes">3.3. Agentes Públicos e RJU</a></li>
+          <li><a href="#poderes">3.4. Poderes Administrativos</a></li>
+          <li><a href="#ato">3.5. Ato Administrativo</a></li>
+          <li><a href="#servicos">3.6. Serviços Públicos</a></li>
+          <li><a href="#controle">3.7. Controle e Responsabilização</a></li>
+          <li><a href="#processo">3.8. Lei 9.784/1999</a></li>
+          <li><a href="#questao2">Questão 2 – Ato Administrativo</a></li>
+        </ul>
+
+        <li class="section">4. Acesso à Informação</li>
+        <ul>
+          <li><a href="#acesso">4.1. Lei 12.527/2011</a></li>
+        </ul>
+
+        <li class="section">5. Proteção de Dados</li>
+        <ul>
+          <li><a href="#lgpd">5.1. Lei 13.709/2018</a></li>
+        </ul>
+
+        <li class="section">6. Direito do Consumidor</li>
+        <ul>
+          <li><a href="#consumidor">6.1. Lei 8.078/1990</a></li>
+          <li><a href="#questao3">Questão 3 – CDC</a></li>
+        </ul>
+
+        <li class="section">7. Defesa da Concorrência</li>
+        <ul>
+          <li><a href="#concorrencia">7.1. Lei 12.529/2011</a></li>
+        </ul>
+
+        <li class="section">✅ Simulado Final</li>
+        <ul>
+          <li><a href="#simulado">Questões 1 a 3 – Revisão Geral</a></li>
+        </ul>
+      </ul>
+    </div>
+
+    <!-- Introdução -->
+    <div class="introduction">
+      Bem-vindo(a) ao módulo <strong>Noções de Direito</strong> da apostila CPNU 2025! Este conteúdo foi desenvolvido para oferecer uma preparação completa, clara e objetiva para concursos da banca FGV. Aqui, você encontrará explicações detalhadas sobre direitos fundamentais, direito administrativo, acesso à informação, proteção de dados e legislação consumerista. Com base na Constituição Federal e em leis importantes, este material prepara você para dominar um dos pilares do edital com segurança e precisão.
+    </div>
+
+    <!-- Capítulo 1 -->
+    <h2 id="direitos-fundamentais">1. Direitos e Garantias Fundamentais</h2>
+    <p>Os direitos e garantias fundamentais estão previstos no <strong>Título II da Constituição Federal de 1988</strong> (Art. 5º ao 15). São direitos invioláveis e essenciais para a dignidade da pessoa humana.</p>
+
+    <h3 id="direitos-individuais">1.1. Direitos e Deveres Individuais e Coletivos</h3>
+    <p>O Art. 5º da CF garante uma ampla gama de direitos civis, políticos e sociais, como:</p>
+    <ul>
+      <li>Igualdade perante a lei (Art. 5º, caput)</li>
+      <li>Direito à vida, à liberdade, à segurança e à propriedade (Art. 5º, III)</li>
+      <li>Liberdade de expressão, de pensamento, de religião (Art. 5º, IV a VI)</li>
+      <li>Proibição de tortura, penas cruéis e retroatividade da lei penal (Art. 5º, III, XLVII)</li>
+    </ul>
+
+    <h3 id="direitos-basicos">1.2. Direito à Vida, Liberdade, Igualdade, etc.</h3>
+    <p>Esses direitos são os pilares do Estado Democrático de Direito. A igualdade não é apenas formal, mas também material, exigindo políticas públicas para reduzir desigualdades.</p>
+
+    <h3 id="direitos-sociais">1.3. Direitos Sociais</h3>
+    <p>Previstos no Art. 6º da CF: educação, saúde, trabalho, moradia, lazer, segurança, previdência, proteção à maternidade e à infância, assistência aos desamparados.</p>
+
+    <h3 id="nacionalidade">1.4. Nacionalidade e Cidadania</h3>
+    <p>Nacionalidade brasileira pode ser originária (nascido no Brasil) ou adquirida (naturalização). Cidadania é o conjunto de direitos e deveres do cidadão.</p>
+
+    <h3 id="garantias">1.6. Garantias Constitucionais</h3>
+    <p>Incluem o <strong>habeas corpus</strong> (lesão ao direito de locomoção), <strong>mandado de segurança</strong> (lesão a direito líquido e certo), <strong>mandado de injunção</strong> (ausência de regulamentação) e <strong>ação popular</strong> (defesa do patrimônio público).</p>
+
+    <div class="question" id="questao1">
+      <h4>Questão 1 (FGV - Adaptada)</h4>
+      <p>Qual remédio constitucional protege o direito de ir e vir?</p>
+      <ul class="options">
+        <li data-letter="a">Mandado de Segurança</li>
+        <li data-letter="b">Habeas Data</li>
+        <li data-letter="c">Habeas Corpus</li>
+        <li data-letter="d">Ação Popular</li>
+        <li data-letter="e">Mandado de Injunção</li>
+      </ul>
+      <p class="answer">Gabarito: C</p>
+    </div>
+
+    <!-- Capítulo 2 -->
+    <h2 id="organizacao-estado">2. A Organização do Estado</h2>
+    <p>O Estado brasileiro é federativo, composto por União, Estados, Municípios e Distrito Federal.</p>
+
+    <h3 id="administracao">2.1. Administração Pública (Art. 37-41 CF)</h3>
+    <p>O Art. 37 estabelece os princípios da administração pública: legalidade, impessoalidade, moralidade, publicidade e eficiência. O regime jurídico dos servidores é regido pela Lei 8.112/1990 (RJU).</p>
+
+    <!-- Capítulo 3 -->
+    <h2 id="direito-administrativo">3. Direito Administrativo</h2>
+
+    <h3 id="conceito">3.1. Conceito, Fontes e Princípios</h3>
+    <p>Direito Administrativo regula a atuação da Administração Pública. Fontes: Constituição, leis, regulamentos. Princípios: legalidade, supremacia do interesse público, autotutela.</p>
+
+    <h3 id="organizacao">3.2. Organização Administrativa</h3>
+    <ul>
+      <li><strong>Direta:</strong> Órgãos da União (ex: Ministérios)</li>
+      <li><strong>Indireta:</strong> Autarquias, fundações, empresas públicas, sociedades de economia mista</li>
+    </ul>
+
+    <h3 id="agentes">3.3. Agentes Públicos e RJU</h3>
+    <p>Regime Jurídico Único (Lei 8.112/1990) aplica-se aos servidores públicos federais. Prevê provimento, vacância, direitos, deveres e regime disciplinar.</p>
+
+    <h3 id="poderes">3.4. Poderes Administrativos</h3>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Poder</th>
+            <th>Finalidade</th>
+            <th>Exemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hierárquico</td>
+            <td>Coordenar e controlar subordinados</td>
+            <td>Superior ordenar serviço</td>
+          </tr>
+          <tr>
+            <td>Disciplinar</td>
+            <td>Aplicar sanções</td>
+            <td>Multa a servidor</td>
+          </tr>
+          <tr>
+            <td>Regulamentar</td>
+            <td>Editar decretos</td>
+            <td>Regulamentar lei</td>
+          </tr>
+          <tr>
+            <td>Polícia</td>
+            <td>Limitar direitos em nome do interesse público</td>
+            <td>Interditar estabelecimento</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="ato">3.5. Ato Administrativo</h3>
+    <p>Manifestação unilateral da Administração. Atributos: presunção de legitimidade, imperatividade, autoexecutoriedade, coercibilidade. Pode ser vinculado ou discricionário.</p>
+
+    <h3 id="servicos">3.6. Serviços Públicos</h3>
+    <p>São atividades prestadas pelo Estado à coletividade. Podem ser delegados por <strong>concessão</strong> (contrato por prazo), <strong>permissão</strong> (ato precário) ou <strong>autorização</strong> (discricionariedade plena).</p>
+
+    <h3 id="controle">3.7. Controle e Responsabilização</h3>
+    <ul>
+      <li><strong>Administrativo:</strong> Interno, pela própria administração.</li>
+      <li><strong>Legislativo:</strong> Pelo Congresso (ex: CPI).</li>
+      <li><strong> Judicial:</strong> Pelo Poder Judiciário.</li>
+      <li><strong>Improbidade:</strong> Lei 8.429/1992 e Lei 14.230/2021 preveem sanções por atos de improbidade.</li>
+    </ul>
+
+    <h3 id="processo">3.8. Lei 9.784/1999</h3>
+    <p>Regula o processo administrativo federal, garantindo direito de defesa, contraditório, motivação e razoável duração.</p>
+
+    <div class="question" id="questao2">
+      <h4>Questão 2 (FGV)</h4>
+      <p>Qual princípio exige que a administração atue com transparência?</p>
+      <ul class="options">
+        <li data-letter="a">Legalidade</li>
+        <li data-letter="b">Impessoalidade</li>
+        <li data-letter="c">Publicidade</li>
+        <li data-letter="d">Eficiência</li>
+        <li data-letter="e">Moralidade</li>
+      </ul>
+      <p class="answer">Gabarito: C</p>
+    </div>
+
+    <!-- Capítulo 4 -->
+    <h2 id="acesso-informacao">4. Acesso à Informação (Lei 12.527/2011)</h2>
+    <p>Garante o direito de qualquer pessoa solicitar informações públicas. O órgão tem 20 dias para responder, podendo prorrogar por mais 10.</p>
+
+    <!-- Capítulo 5 -->
+    <h2 id="lgpd">5. Lei Geral de Proteção de Dados (Lei 13.709/2018)</h2>
+    <p>Regula o tratamento de dados pessoais no Brasil. Princípios: finalidade, adequação, necessidade, transparência, segurança. Aplica-se a empresas e órgãos públicos.</p>
+
+    <!-- Capítulo 6 -->
+    <h2 id="consumidor">6. Direito do Consumidor (Lei 8.078/1990)</h2>
+    <p>Protege o consumidor contra práticas abusivas. Princípios: vulnerabilidade, boa-fé, proteção efetiva. Prevê direitos básicos como informação, segurança, qualidade.</p>
+
+    <div class="question" id="questao3">
+      <h4>Questão 3 (FGV)</h4>
+      <p>Qual é o prazo para reclamar vício oculto em produto?</p>
+      <ul class="options">
+        <li data-letter="a">30 dias para produto não durável</li>
+        <li data-letter="b">90 dias para produto durável</li>
+        <li data-letter="c">180 dias para qualquer produto</li>
+        <li data-letter="d">6 meses para serviço</li>
+        <li data-letter="e">1 ano para imóvel</li>
+      </ul>
+      <p class="answer">Gabarito: B</p>
+    </div>
+
+    <!-- Capítulo 7 -->
+    <h2 id="concorrencia">7. Defesa da Concorrência (Lei 12.529/2011)</h2>
+    <p>Cuida da livre concorrência e combate aos abusos de poder de mercado. O CADE (Conselho Administrativo de Defesa Econômica) é o órgão responsável.</p>
+
+    <!-- Link para Simulado -->
+<div class="simulado-box" style="border: 2px solid #ff6600; padding: 20px; border-radius: 8px; background: #fff8f2; margin: 30px 0;">
+  <h4 style="margin-top:0; font-size: 20px;">🚀 Acesse o Simulado Completo Online!</h4>
+  <p>Teste seus conhecimentos com o simulado oficial da <strong>YR Aprova</strong>, com 40 questões no estilo da banca FGV.</p>
+  <p>
+    <a href="https://encurtador.com.br/M6SsZ" target="_blank" style="color:#fff; background:#ff6600; padding:10px 16px; text-decoration:none; border-radius:6px; font-weight:bold;">
+      Clique aqui para acessar o simulado →
+    </a>
+  </p>
+</div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+      Apostila CPNU 2025 – YR Aprova | Noções de Direito – Nível Médio<br>
+      © 2025 Digital Concursos. Todos os direitos reservados.<br>
+      Conteúdo atualizado para concursos da banca FGV.
+    </div>
+
+  </div>
+</body>
+</html>
